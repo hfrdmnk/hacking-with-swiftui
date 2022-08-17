@@ -35,6 +35,16 @@ struct DetailView: View {
                 .font(.title)
                 .foregroundColor(.secondary)
             
+            Group {
+                if let date = book.date {
+                    Text(date, style: .date)
+                } else {
+                    Text("No Date")
+                }
+            }
+            .foregroundColor(.secondary)
+            .font(.caption)
+            
             Text(book.review ?? "No Review")
                 .padding()
             

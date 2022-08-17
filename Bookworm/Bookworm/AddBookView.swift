@@ -17,6 +17,12 @@ struct AddBookView: View {
     @State private var genre = ""
     @State private var review = ""
     
+    private var formFilledOut: Bool {
+        title.isEmpty || author.isEmpty || genre.isEmpty
+    }
+    
+    @State private var showErrorAlert = false
+    
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
     var body: some View {
@@ -43,6 +49,11 @@ struct AddBookView: View {
                 
                 Section {
                     Button("Save") {
+//                        if title.isEmpty || author.isEmpty || genre.isEmpty {
+//                            showErrorAlert = true
+//                            return
+//                        }
+                        
                         let newBook = Book(context: moc)
                         
                         newBook.id = UUID()
@@ -51,14 +62,19 @@ struct AddBookView: View {
                         newBook.rating = Int16(rating)
                         newBook.genre = genre
                         newBook.review = review
+                        newBook.date = Date.now
                         
                         try? moc.save()
                         
                         dismiss()
                     }
+                    .disabled(formFilledOut)
                 }
             }
             .navigationTitle("Add Book")
+//            .alert("Please fill out all fields!", isPresented: $showErrorAlert) {
+//                Button("Ok") { }
+//            }
         }
         
     }
