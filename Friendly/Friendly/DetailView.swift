@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct DetailView: View {
-    let user: User
+    let user: CachedUser
     
     var body: some View {
         VStack(alignment: .leading) {
             Group {
-                Text(user.name)
+                Text(user.wrappedName)
                     .font(.largeTitle.bold())
                 
                 HStack(spacing: 16) {
@@ -22,7 +22,7 @@ struct DetailView: View {
                     HStack {
                         Image(systemName: "calendar.badge.plus")
                         
-                        Text(formatDate(date: user.registered))
+                        Text(formatDate(date: user.wrappedRegistered))
                             .font(.caption.bold())
                             .opacity(0.7)
                     }
@@ -33,23 +33,23 @@ struct DetailView: View {
             
             List {
                 Section("Infos") {
-                    Label("Age: \(user.age)", systemImage: "person.badge.clock")
-                    Label("Company: \(user.company)", systemImage: "building.2")
-                    Label("Email: \(user.email)", systemImage: "mail")
-                    Label("Address: \n\(user.address)", systemImage: "mappin.and.ellipse")
+                    Label("Age: \(user.wrappedAge)", systemImage: "person.badge.clock")
+                    Label("Company: \(user.wrappedCompany)", systemImage: "building.2")
+                    Label("Email: \(user.wrappedEmail)", systemImage: "mail")
+                    Label("Address: \n\(user.wrappedAddress)", systemImage: "mappin.and.ellipse")
                 }
                 
                 Section("Friends") {
                     ScrollView(.horizontal) {
                         HStack {
-                            ForEach(user.friends) { friend in
+                            ForEach(user.friendsArray) { friend in
                                 ZStack {
                                     Capsule()
                                         .fill(.secondary)
                                         .opacity(0.3)
                                                                             
                                     HStack {
-                                        Label(friend.name, systemImage: "person")
+                                        Label(friend.wrappedName, systemImage: "person")
                                             .padding(8)
                                     }
                                 }
@@ -61,7 +61,7 @@ struct DetailView: View {
                 Section("Tags") {
                     ScrollView(.horizontal) {
                         HStack {
-                            ForEach(user.tags, id: \.self) { tag in
+                            ForEach(user.wrappedTags, id: \.self) { tag in
                                 ZStack {
                                     Capsule()
                                         .fill(.secondary)
@@ -76,7 +76,7 @@ struct DetailView: View {
                 }
                 
                 Section("About") {
-                    Text(user.about)
+                    Text(user.wrappedAbout)
                         .padding(.vertical)
                 }
                 
