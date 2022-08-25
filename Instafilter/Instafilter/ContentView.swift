@@ -8,40 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showAlert = false
-    @State private var showDialog = false
-    @State private var tintColor = Color.mint
+    @State private var image: Image?
+    @State private var showingImagePicker = false
     
     var body: some View {
         VStack {
-            Button("Show alert") {
-                showAlert = true
+            image?
+                .resizable()
+                .scaledToFit()
+            
+            Button("Select Image") {
+                showingImagePicker = true
             }
             .buttonStyle(.bordered)
-            
-            Button("Change button tint") {
-                showDialog = true
-            }
-            .buttonStyle(.borderedProminent)
         }
-        .tint(tintColor)
-        .alert("That's just a random alert", isPresented: $showAlert) {
-            Button("Ok, nevermind") { }
-        }
-        .confirmationDialog("Choose your color", isPresented: $showDialog) {
-            Button("Mint") {
-                tintColor = .mint
-            }
-            
-            Button("Indigo") {
-                tintColor = .indigo
-            }
-            
-            Button("Purple") {
-                tintColor = .purple
-            }
-        } message: {
-            Text("Select your new tint color")
+        .sheet(isPresented: $showingImagePicker) {
+            ImagePicker()
         }
     }
 }
