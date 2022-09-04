@@ -14,6 +14,7 @@
 		8D04A74928BFBC5400E6A308 /* FileManager-Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D04A74828BFBC5400E6A308 /* FileManager-Codable.swift */; };
 		8D3F0DF928C39B1C00417DA6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3F0DF828C39B1C00417DA6 /* Location.swift */; };
 		8D3F0DFB28C39F5D00417DA6 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3F0DFA28C39F5D00417DA6 /* EditView.swift */; };
+		8DE9C95828C4B0C80048000B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE9C95728C4B0C80048000B /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		8D04A74828BFBC5400E6A308 /* FileManager-Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-Codable.swift"; sourceTree = "<group>"; };
 		8D3F0DF828C39B1C00417DA6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		8D3F0DFA28C39F5D00417DA6 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		8DE9C95728C4B0C80048000B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				8D04A74828BFBC5400E6A308 /* FileManager-Codable.swift */,
 				8D04A73A28BFB63400E6A308 /* BucketListApp.swift */,
 				8D04A73C28BFB63400E6A308 /* ContentView.swift */,
+				8DE9C95728C4B0C80048000B /* Result.swift */,
 				8D3F0DFA28C39F5D00417DA6 /* EditView.swift */,
 				8D3F0DF828C39B1C00417DA6 /* Location.swift */,
 				8D04A73E28BFB63600E6A308 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DE9C95828C4B0C80048000B /* Result.swift in Sources */,
 				8D04A73D28BFB63400E6A308 /* ContentView.swift in Sources */,
 				8D3F0DFB28C39F5D00417DA6 /* EditView.swift in Sources */,
 				8D04A74928BFBC5400E6A308 /* FileManager-Codable.swift in Sources */,

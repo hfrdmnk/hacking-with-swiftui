@@ -45,10 +45,6 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 
-                HStack(alignment: .center, spacing: 16) {
-                    Text("This works!")
-                }
-                
                 HStack {
                     Spacer()
                     
