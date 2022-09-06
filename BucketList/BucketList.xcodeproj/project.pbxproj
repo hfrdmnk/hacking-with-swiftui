@@ -13,6 +13,7 @@
 		8D04A74228BFB63600E6A308 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D04A74128BFB63600E6A308 /* Preview Assets.xcassets */; };
 		8D3F0DF928C39B1C00417DA6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3F0DF828C39B1C00417DA6 /* Location.swift */; };
 		8D3F0DFB28C39F5D00417DA6 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3F0DFA28C39F5D00417DA6 /* EditView.swift */; };
+		8D46CE6228C7DD4B004192B1 /* EditView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D46CE6128C7DD4B004192B1 /* EditView-ViewModel.swift */; };
 		8D66A9AA28C5E7E900686CE9 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66A9A928C5E7E900686CE9 /* ContentView-ViewModel.swift */; };
 		8D66A9AC28C5EB6F00686CE9 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66A9AB28C5EB6F00686CE9 /* FileManager-DocumentsDirectory.swift */; };
 		8DE9C95828C4B0C80048000B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE9C95728C4B0C80048000B /* Result.swift */; };
@@ -26,6 +27,7 @@
 		8D04A74128BFB63600E6A308 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8D3F0DF828C39B1C00417DA6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		8D3F0DFA28C39F5D00417DA6 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		8D46CE6128C7DD4B004192B1 /* EditView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditView-ViewModel.swift"; sourceTree = "<group>"; };
 		8D66A9A928C5E7E900686CE9 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		8D66A9AB28C5EB6F00686CE9 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		8DE9C95728C4B0C80048000B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				8D66A9AB28C5EB6F00686CE9 /* FileManager-DocumentsDirectory.swift */,
 				8DE9C95728C4B0C80048000B /* Result.swift */,
 				8D3F0DFA28C39F5D00417DA6 /* EditView.swift */,
+				8D46CE6128C7DD4B004192B1 /* EditView-ViewModel.swift */,
 				8D66A9A928C5E7E900686CE9 /* ContentView-ViewModel.swift */,
 				8D3F0DF828C39B1C00417DA6 /* Location.swift */,
 				8D04A73E28BFB63600E6A308 /* Assets.xcassets */,
@@ -157,6 +160,7 @@
 				8D3F0DFB28C39F5D00417DA6 /* EditView.swift in Sources */,
 				8D3F0DF928C39B1C00417DA6 /* Location.swift in Sources */,
 				8D66A9AA28C5E7E900686CE9 /* ContentView-ViewModel.swift in Sources */,
+				8D46CE6228C7DD4B004192B1 /* EditView-ViewModel.swift in Sources */,
 				8D66A9AC28C5EB6F00686CE9 /* FileManager-DocumentsDirectory.swift in Sources */,
 				8D04A73B28BFB63400E6A308 /* BucketListApp.swift in Sources */,
 			);

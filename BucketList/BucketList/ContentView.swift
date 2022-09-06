@@ -49,13 +49,14 @@ struct ContentView: View {
                             viewModel.addLocation()
                         } label: {
                             Image(systemName: "plus")
+                                .padding()
+                                .background(.black.opacity(0.75))
+                                .foregroundColor(.white)
+                                .font(.title)
+                                .clipShape(Circle())
+                                .padding(.trailing)
                         }
-                        .padding()
-                        .background(.black.opacity(0.75))
-                        .foregroundColor(.white)
-                        .font(.title)
-                        .clipShape(Circle())
-                        .padding(.trailing)
+                        
                     }
                 }
             }
@@ -71,6 +72,11 @@ struct ContentView: View {
             .padding()
             .buttonStyle(.bordered)
             .tint(.indigo)
+            .alert(viewModel.errorAlertTitle, isPresented: $viewModel.showErrorAlert) {
+                Button("Ok") { }
+            } message: {
+                Text(viewModel.errorAlertMessage)
+            }
         }
         
         

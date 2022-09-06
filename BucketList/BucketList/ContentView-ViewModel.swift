@@ -17,6 +17,10 @@ extension ContentView {
         @Published var selectedPlace: Location?
         @Published var isUnlocked = false
         
+        @Published var showErrorAlert = false
+        @Published var errorAlertTitle = ""
+        @Published var errorAlertMessage = ""
+        
         let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedPlaces")
         
         init() {
@@ -66,7 +70,9 @@ extension ContentView {
                             self.isUnlocked = true
                         }
                     } else {
-                        // error
+                        self.errorAlertTitle = "Auth failed…"
+                        self.errorAlertMessage = "Please try again!"
+                        self.showErrorAlert = true
                     }
                 }
             } else {
