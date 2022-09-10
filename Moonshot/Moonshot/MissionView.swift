@@ -20,10 +20,12 @@ struct MissionView: View {
                         .scaledToFit()
                         .frame(maxWidth: geo.size.width * 0.8)
                         .padding(.top)
+                        .accessibilityLabel("Image of \(mission.displayName) mission")
                     
                     Text(mission.formattedLaunchDate)
                         .font(.headline)
                         .padding(.top)
+                        .accessibilityLabel(mission.formattedLaunchDate != "N/A" ? "Launched on \(mission.formattedLaunchDate)" : "Never launched")
                     
                     VStack(alignment: .leading) {
                         CustomDivider()
@@ -104,6 +106,7 @@ struct AstronautsScrollView: View {
                                     RoundedRectangle(cornerRadius: 5)
                                         .strokeBorder(isCommander(role: member.role) ? .mint : .white, lineWidth: isCommander(role: member.role) ? 3 : 1)
                                 )
+                                .accessibilityLabel("Portrait of \(member.astronaut.name)")
                             
                             VStack(alignment: .leading) {
                                 Text(member.astronaut.name)

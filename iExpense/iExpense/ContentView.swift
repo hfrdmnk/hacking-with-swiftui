@@ -74,5 +74,8 @@ struct ListItem: View {
             Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
                 .foregroundColor(item.amount < 10 ? .mint : item.amount < 100 ? .orange : .red)
         }
+        .accessibilityElement()
+        .accessibilityLabel("Paid \(item.amount) for \(item.name)")
+        .accessibilityHint("Category: \(item.type)")
     }
 }

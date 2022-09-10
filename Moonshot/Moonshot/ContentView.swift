@@ -63,6 +63,7 @@ struct MissionGrid: View {
                                 .scaledToFit()
                                 .frame(width: 100, height: 100)
                                 .padding()
+                                .accessibilityLabel("Image of \(mission.displayName) mission")
                             
                             VStack {
                                 Text(mission.displayName)
@@ -72,6 +73,7 @@ struct MissionGrid: View {
                                 Text(mission.formattedLaunchDate)
                                     .font(.caption)
                                     .foregroundColor(.white.opacity(0.5))
+                                    .accessibilityLabel(mission.formattedLaunchDate != "N/A" ? "Launched on \(mission.formattedLaunchDate)" : "Never launched")
                             }
                             .padding(.vertical)
                             .frame(maxWidth: .infinity)

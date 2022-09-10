@@ -52,6 +52,8 @@ struct ContentView: View {
                                 .foregroundColor(Color.white)
                         }
                         .listRowBackground(Color.primary.opacity(0.2))
+                        .accessibilityElement()
+                        .accessibilityLabel("\(word), \(word.count) letters")
                     }
                 }
             }
