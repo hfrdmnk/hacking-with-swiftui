@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = ViewModel()
+    let locationFetcher = LocationFetcher()
     
     var body: some View {
         NavigationView {
@@ -40,6 +41,7 @@ struct ContentView: View {
                     
                     HStack {
                         Button {
+                            locationFetcher.start()
                             viewModel.showAddContactSheet = true
                             // viewModel.addContact(Contact.example)
                         } label: {
@@ -52,7 +54,7 @@ struct ContentView: View {
             }
             .navigationTitle("Connector")
             .sheet(isPresented: $viewModel.showAddContactSheet) {
-                AddView(vm: viewModel)
+                AddView(vm: viewModel, locationFetcher: locationFetcher)
             }
         }
     }

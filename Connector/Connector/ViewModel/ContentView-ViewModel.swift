@@ -5,7 +5,7 @@
 //  Created by Dominik Hofer on 12.09.22.
 //
 
-import Foundation
+import MapKit
 
 extension ContentView {
     @MainActor class ViewModel: ObservableObject {

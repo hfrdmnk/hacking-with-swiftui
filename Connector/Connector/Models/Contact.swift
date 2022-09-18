@@ -5,15 +5,29 @@
 //  Created by Dominik Hofer on 12.09.22.
 //
 
-import Foundation
 import SwiftUI
+import CoreLocation
 
 struct Contact: Identifiable, Codable, Comparable {
     var id = UUID().uuidString
     var name: String
     var company: String
+    let latitude: Double?
+    let longitude: Double?
+    
+    var location: CLLocationCoordinate2D? {
+        if let latitude = latitude, let longitude = longitude {
+            return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        }
+        
+        return nil
+    }
     
     var image: Image? {
+        if id == "portrait" {
+            return Image(id)
+        }
+        
         let url = self.getDocumentsDirectory().appendingPathComponent("\(id)-photo.jpg")
         
         guard let uiImage = try? UIImage(data: Data(contentsOf: url)) else {
@@ -24,7 +38,7 @@ struct Contact: Identifiable, Codable, Comparable {
         return Image(uiImage: uiImage)
     }
     
-    static let example = Contact(name: "Dominik Hofer", company: "BTW")
+    static let example = Contact(id: "portrait", name: "Dominik Hofer", company: "BTW", latitude: 46.94678, longitude: 7.44428)
     
     func writeToSecureDirectory(uiImage: UIImage) {
         let imageSaver = ImageSaver()

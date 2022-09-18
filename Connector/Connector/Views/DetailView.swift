@@ -5,7 +5,13 @@
 //  Created by Dominik Hofer on 15.09.22.
 //
 
+import MapKit
 import SwiftUI
+
+struct LocationPin: Identifiable {
+    let id = UUID()
+    let coordinate: CLLocationCoordinate2D
+}
 
 struct DetailView: View {
     let contact: Contact
@@ -13,29 +19,57 @@ struct DetailView: View {
     
     @State private var showingConfirmAlert = false
     
+    var markers: [LocationPin] {
+        if let location = contact.location {
+            return [LocationPin(coordinate: location)]
+        }
+        
+        return []
+    }
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack(alignment: .leading) {
             GeometryReader { metrics in
-                contact.image?
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: metrics.size.width, height: metrics.size.width)
-                    .clipped()
-                    .overlay(alignment: .bottomLeading) {
-                            Text(contact.company)
-                                .font(.title2.bold())
-                                .foregroundColor(.white)
-                            .padding()
-                            .background {
-                                Color.black
-                                    .opacity(0.3)
-                                    .cornerRadius(8, corners: [.topRight])
+                    TabView {
+                        contact.image?
+                            .resizable()
+                            .scaledToFill()
+                            .overlay(alignment: .bottomLeading) {
+                                    Label(contact.company, systemImage: "building.2.fill")
+                                        .font(.title2.bold())
+                                        .foregroundColor(.white)
+                                    .padding()
+                                    .background {
+                                        Color.black
+                                            .opacity(0.3)
+                                            .cornerRadius(8, corners: [.topRight])
+                                }
+                            }
+                        
+                        if let location = contact.location {
+                            Map(coordinateRegion: .constant(MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))), annotationItems: markers) { location in
+                                MapMarker(coordinate: location.coordinate)
+                            }
+                            .disabled(true)
+                            .overlay(alignment: .bottomLeading) {
+                                Label("Location", systemImage: "mappin.and.ellipse")
+                                        .font(.title2.bold())
+                                        .foregroundColor(.white)
+                                    .padding()
+                                    .background {
+                                        Color.black
+                                            .opacity(0.3)
+                                            .cornerRadius(8, corners: [.topRight])
+                                }
+                            }
                         }
                     }
+                    .tabViewStyle(.page)
+                    .frame(width: metrics.size.width, height: metrics.size.width)
+                .mask(RoundedRectangle(cornerRadius: 16))
             }
-            .mask(RoundedRectangle(cornerRadius: 16))
             
         }
         .padding()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D7DF06728D73A9E009ED83C /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7DF06628D73A9E009ED83C /* LocationFetcher.swift */; };
 		8DA70E2E28CEFDF300E149D1 /* ConnectorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA70E2D28CEFDF300E149D1 /* ConnectorApp.swift */; };
 		8DA70E3028CEFDF300E149D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA70E2F28CEFDF300E149D1 /* ContentView.swift */; };
 		8DA70E3228CEFDF500E149D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DA70E3128CEFDF500E149D1 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D7DF06628D73A9E009ED83C /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		8DA70E2A28CEFDF300E149D1 /* Connector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA70E2D28CEFDF300E149D1 /* ConnectorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectorApp.swift; sourceTree = "<group>"; };
 		8DA70E2F28CEFDF300E149D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				8DA70E3D28CEFE8000E149D1 /* ImagePicker.swift */,
 				8DA70E4728CEFF8800E149D1 /* FileManager-DocumentsDirectory.swift */,
 				8DE772C828D3614E000DFF4D /* RoundedCorners.swift */,
+				8D7DF06628D73A9E009ED83C /* LocationFetcher.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				8DA70E3C28CEFE2000E149D1 /* Contact.swift in Sources */,
 				8DE772C728D35D0C000DFF4D /* DetailView.swift in Sources */,
 				8DA70E4828CEFF8800E149D1 /* FileManager-DocumentsDirectory.swift in Sources */,
+				8D7DF06728D73A9E009ED83C /* LocationFetcher.swift in Sources */,
 				8DA70E4628CEFF2900E149D1 /* ContentView-ViewModel.swift in Sources */,
 				8DA70E3E28CEFE8000E149D1 /* ImagePicker.swift in Sources */,
 				8DA70E4A28CF037800E149D1 /* AddView.swift in Sources */,
@@ -334,6 +338,7 @@
 				DEVELOPMENT_TEAM = 427KM6YQPH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to access your location for entering new contacts.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -364,6 +369,7 @@
 				DEVELOPMENT_TEAM = 427KM6YQPH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to access your location for entering new contacts.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
