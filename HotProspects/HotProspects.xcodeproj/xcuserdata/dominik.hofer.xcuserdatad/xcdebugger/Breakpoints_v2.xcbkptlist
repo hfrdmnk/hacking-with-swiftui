@@ -14,9 +14,9 @@
             filePath = "HotProspects/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "ContentView_Previews"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "ContentView"
             landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
