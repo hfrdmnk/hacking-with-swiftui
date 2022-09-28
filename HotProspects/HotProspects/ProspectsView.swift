@@ -12,22 +12,38 @@ import UserNotifications
 struct ProspectsView: View {
     @EnvironmentObject var prospects: Prospects
     @State private var isShowingScanner = false
+    @State private var isShowingSortDialog = false
     
     enum FilterType {
         case none, contacted, uncontacted
     }
     
+    enum SortType {
+        case name, recent
+    }
+    
     let filter: FilterType
+    @State private var sorted = SortType.recent
     
     var body: some View {
         NavigationStack {
             List {
                 ForEach(filteredProspects) { prospect in
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
-                        Text(prospect.emailAddress)
-                            .foregroundColor(.secondary)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            Text(prospect.emailAddress)
+                                .foregroundColor(.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        if(filter == .none) {
+                            Image(systemName: prospect.isContacted ? "checkmark.bubble" : "bubble.left")
+                                .foregroundColor(prospect.isContacted ? .green : .secondary)
+                        }
+                        
                     }
                     .swipeActions {
                         if prospect.isContacted {
@@ -52,19 +68,45 @@ struct ProspectsView: View {
                             }
                             .tint(.mint)
                         }
-                    }
+                }
                 }
             }
             .navigationTitle(title)
             .toolbar {
-                Button {
-                    isShowingScanner = true
-                } label: {
-                    Label("Scan", systemImage: "qrcode.viewfinder")
+                ToolbarItem {
+                    Button {
+                        isShowingSortDialog = true
+                    } label: {
+                        Label("Scan", systemImage: "arrow.up.arrow.down")
+                    }
+                }
+                
+                ToolbarItem {
+                    Button {
+                        isShowingScanner = true
+                    } label: {
+                        Label("Scan", systemImage: "qrcode.viewfinder")
+                    }
+                    .buttonStyle(.bordered)
                 }
             }
             .sheet(isPresented: $isShowingScanner) {
                 CodeScannerView(codeTypes: [.qr], simulatedData: "Dominik Hofer\nhi@dominikhofer.me", completion: handleScan)
+            }
+            .confirmationDialog("Change sort order", isPresented: $isShowingSortDialog) {
+                Button {
+                    sorted = .name
+                } label: {
+                    Label("By name", image: "person")
+                }
+                
+                Button {
+                    sorted = .recent
+                } label: {
+                    Label("By create date", image: "calendar")
+                }
+                
+                Button("Cancel", role: .cancel) { }
             }
         }
     }
@@ -80,14 +122,24 @@ struct ProspectsView: View {
         }
     }
     
+    var sortedProspects: [Prospect] {
+        switch sorted {
+        case .recent:
+            return prospects.people.sorted { $0.created > $1.created
+            }
+        case .name:
+            return prospects.people.sorted { $0.name.lowercased() < $1.name.lowercased() }
+        }
+    }
+    
     var filteredProspects: [Prospect] {
         switch filter {
         case .none:
-            return prospects.people
+            return sortedProspects
         case .contacted:
-            return prospects.people.filter { $0.isContacted }
+            return sortedProspects.filter { $0.isContacted }
         case .uncontacted:
-            return prospects.people.filter { !$0.isContacted }
+            return sortedProspects.filter { !$0.isContacted }
         }
     }
     
