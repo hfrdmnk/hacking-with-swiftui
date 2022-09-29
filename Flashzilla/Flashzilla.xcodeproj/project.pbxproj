@@ -11,6 +11,7 @@
 		8D4CB5BA28E49A5E00C077EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4CB5B928E49A5E00C077EB /* ContentView.swift */; };
 		8D4CB5BC28E49A5F00C077EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4CB5BB28E49A5F00C077EB /* Assets.xcassets */; };
 		8D4CB5BF28E49A5F00C077EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4CB5BE28E49A5F00C077EB /* Preview Assets.xcassets */; };
+		8DE7F4B328E5A28600505702 /* WithOptionalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE7F4B228E5A28600505702 /* WithOptionalAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		8D4CB5B928E49A5E00C077EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D4CB5BB28E49A5F00C077EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D4CB5BE28E49A5F00C077EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8DE7F4B228E5A28600505702 /* WithOptionalAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithOptionalAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		8D4CB5B628E49A5E00C077EB /* Flashzilla */ = {
 			isa = PBXGroup;
 			children = (
+				8DE7F4B228E5A28600505702 /* WithOptionalAnimation.swift */,
 				8D4CB5B728E49A5E00C077EB /* FlashzillaApp.swift */,
 				8D4CB5B928E49A5E00C077EB /* ContentView.swift */,
 				8D4CB5BB28E49A5F00C077EB /* Assets.xcassets */,
@@ -139,6 +142,7 @@
 			files = (
 				8D4CB5BA28E49A5E00C077EB /* ContentView.swift in Sources */,
 				8D4CB5B828E49A5E00C077EB /* FlashzillaApp.swift in Sources */,
+				8DE7F4B328E5A28600505702 /* WithOptionalAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

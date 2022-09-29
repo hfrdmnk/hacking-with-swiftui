@@ -7,17 +7,10 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View {    
     var body: some View {
-        VStack {
-            Text("Hello")
-            Spacer().frame(height: 100)
-            Text("World")
-        }
-        .contentShape(Rectangle())
-        .onTapGesture {
-            print("Tapped")
-        }
+        Text("Hello World!")
+            .padding()
     }
 }
 
