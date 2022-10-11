@@ -7,15 +7,25 @@
 
 import SwiftUI
 
+extension Shape {
+    func coloredCard(dragging: Bool, offset: CGSize) -> some View {
+        self
+            .fill(dragging ? (offset.width > 0 ? Color.green : Color.red) : Color.clear)
+    }
+}
+
 struct CardView: View {
     let card: Card
     var removal: (() -> Void)? = nil
+    var wrongRemoval: (() -> Void)? = nil
+    let animationDuration = 0.5
     
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     @Environment(\.accessibilityVoiceOverEnabled) var voiceOverEnabled
     
     @State private var isShowingAnswer = false
     @State private var offset = CGSize.zero
+    @State private var cardIsDragging = false
     @State private var feedback = UINotificationFeedbackGenerator()
     
     var body: some View {
@@ -31,7 +41,7 @@ struct CardView: View {
                     differentiateWithoutColor
                     ? nil
                     : RoundedRectangle(cornerRadius: 25, style: .continuous)
-                        .fill(offset.width > 0 ? .green : .red)
+                        .coloredCard(dragging: cardIsDragging, offset: offset)
                 )
                 .shadow(radius: 10)
             
@@ -63,6 +73,7 @@ struct CardView: View {
         .gesture(
             DragGesture()
                 .onChanged { gesture in
+                    cardIsDragging = true
                     offset = gesture.translation
                     feedback.prepare()
                 }
@@ -70,13 +81,18 @@ struct CardView: View {
                     if abs(offset.width) > 100 {
                         if offset.width > 0 {
                             feedback.notificationOccurred(.success)
+                            
+                            
+                            
+                            removal?()
                         } else {
                             feedback.notificationOccurred(.error)
+                            
+                            wrongRemoval?()
                         }
-                        
-                        removal?()
                     } else {
                         withAnimation(.spring()) {
+                            cardIsDragging = false
                             offset = .zero
                         }
                     }
